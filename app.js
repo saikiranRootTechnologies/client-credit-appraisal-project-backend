@@ -19,7 +19,7 @@ app.use(
 app.use(express.json({ limit: "1mb" }));
 
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
-app.get("/api", (_req, res) => res.json({ version: process.env.npm_package_version }));
+app.get("/api", (_req, res) => res.json({ data: "i am ironman" }));
 app.use("/api/auth", authRoutes);
 app.use("/api/clients", requireAuth, clientRoutes);
 app.use("/api/debts", requireAuth, debtRoutes);
