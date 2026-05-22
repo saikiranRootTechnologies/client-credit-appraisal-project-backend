@@ -36,7 +36,7 @@ exports.signup = async (req, res) => {
   });
 
   const token = signToken(user);
-  res.status(201).json({ token, user: publicUser(user) });
+ return res.status(201).json({ token, user: publicUser(user) });
 };
 
 exports.login = async (req, res) => {
@@ -50,9 +50,9 @@ exports.login = async (req, res) => {
   if (!ok) return res.status(401).json({ message: "Invalid credentials" });
 
   const token = signToken(user);
-  res.json({ token, user: publicUser(user) });
+  return res.json({ token, user: publicUser(user) });
 };
 
 exports.me = async (req, res) => {
-  res.json({ user: publicUser(req.user) });
+  return res.json({ user: publicUser(req.user) });
 };
